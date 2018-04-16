@@ -8,5 +8,11 @@ register_form.classList.remove("visible");
 registe_button.addEventListener("click", function(){
     console.log("TESTANDO:::");
     register_form.classList.remove("hidden");
-    register_form.setAttribute("class", "visibility");
+    register_form.setAttribute("class", "visible");
+});
+
+var logout = document.getElementById("logout");
+logout.addEventListener("click", function(){
+    console.log("LOGOUT..");
+    
 })

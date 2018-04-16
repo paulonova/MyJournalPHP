@@ -1,7 +1,16 @@
 <?php require_once "partials/head.php";  ?>
+
+<?php if (isset($_GET["message"])) {?>
+    <div id="login_failed" class="alert alert-danger" role="alert">
+        <?php echo $_GET["message"]; ?>
+    </div>
+
+    <?php } ?>
+
 <div class="container-fluid">
-    <h1 class="Inlamning_title jumbotron">Inlämningsuppgift n.1</h1>
+    <h1 class="inlamning_title jumbotron">Inlämningsuppgift n.1</h1>
 </div>
+
 <main class="container">
 
 <?php if (!isset($_SESSION["loggedIn"])): ?>    
@@ -13,7 +22,7 @@
             <label for="username" class="sr-only">Email address</label>
             <input type="text" name ="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
             <label for="password" class="sr-only">Password</label>
-            <input type="password" id="sign_password" class="form-control" placeholder="Password" required>
+            <input type="password" name="password" id="sign_password" class="form-control" placeholder="Password" required>
 
             <div class="signin_btn">
                 <button id="register" class="btn btn-warning" type="button">Not registered</button>
@@ -39,11 +48,9 @@
         </div>       
       </form>
 
-<?php else : 
-    echo "<h1>Welcome to my page! </h1>";
-    echo "<a href='logout.php'>Logout here</a>"; ?>   
+    <?php else : header('Location: /journal.php'); ?>   
 
-      <?php endif; ?>
+    <?php endif; ?>
 
 </main>
 
