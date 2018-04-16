@@ -1,5 +1,6 @@
 html{
-    background-color: darkgray;
+    background-image: url("../images/bakground.jpg");
+    /* background-color: darkgray; */
     min-width: 560px;
 }
 
@@ -25,6 +26,11 @@ body{
     background-image: url("../images/header.jpg");
     background-repeat: no-repeat;
     background-size: 100% 150%;
+}
+
+.sub_title{
+    text-align: center;
+    font-size: 1.5rem;
 }
 
 .signin_form, .register_form, .jornal_form {    

@@ -8,7 +8,7 @@
     <?php } ?>
 
 <div class="container-fluid">
-    <h1 class="inlamning_title jumbotron">Inlämningsuppgift n.1</h1>
+    <h1 class="inlamning_title jumbotron">Inlämningsuppgift n.1 <p class="sub_title">PHP / MySql - Paulo Vila Nova</p></h1>
 </div>
 
 <main class="container">
