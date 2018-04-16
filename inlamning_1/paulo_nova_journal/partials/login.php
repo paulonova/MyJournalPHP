@@ -9,13 +9,13 @@ $statement->execute([
 ]);
 
 $user = $statement->fetch();
-echo "<h1>Inlogad..</h1>";
 
 if(password_verify($_POST["password"], $user["password"])){
     header('Location: /index.php');
 
     $_SESSION["loggedIn"] = true;
     $_SESSION["username"] = $user["username"];
+    $_SESSION["user_id"] = $user["userID"];
 
 }else{
     header('Location: /index.php?message=login failed');

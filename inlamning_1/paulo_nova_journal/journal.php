@@ -1,27 +1,34 @@
-<?php require_once "partials/journal_head.php";  ?>
+<?php   require_once "partials/journal_head.php";  
+        
+
+
+
+
+
+
+?>
 
 <div class="inlamning_title jumbotron">
     <h1>My Journal</h1>    
+    <h3>UserID: <?php echo $_SESSION['user_id'];?></h3>    
 </div>
 
 <main class="container">
     
     <section class="jornal_form"> <!-- Section Journal Entries -->
         <form action='./partials/get_all_entries.php' method='POST'>
-            <div class="form-group"><!-- Title -->
-                <label for="journal_title">Title:</label>
-                <input type="text" name="journal_title" class="form-control" id="journal_title" placeholder="Journal Title">
-            </div><!-- Title -->
-                
-            <div class="form-group"> <!-- Journal annotation -->
-                <label for="journal_area">Journal:</label>
-                <textarea class="form-control" name="journal_area" id="journal_area" placeholder="Write you journal here.." rows="3"></textarea>
-            </div><!-- Journal annotation -->
 
-            <div class="form-group" id="datepicker"><!-- Date -->
-                <label for="journal_date">Date:</label>
-                <input type="date" class="form-control" name="journal_date" placeholder="yyyy/mm/dd" />
-            </div> <!-- Date -->
+            <label for="journal_title" class="sr-only">Username</label> <!-- Title -->
+            <input type="text" name ="journal_title" id="journal_title" class="form-control" 
+                    placeholder="Journal Title.." required autofocus> <!-- Title -->
+            
+            <label for="journal_area" class="sr-only">Journal:</label>  <!-- Journal annotation -->
+            <textarea class="form-control" name="journal_area" id="journal_area" 
+                    placeholder="Write you journal here.." rows="4" required autofocus></textarea>  <!-- Journal annotation -->
+
+            <label for="journal_date" class="sr-only">Date:</label>  <!-- Date -->
+            <input type="date" class="form-control" name="journal_date" 
+                    placeholder="yyyy/mm/dd" required autofocus/>  <!-- Date -->
 
             <div class="signin_btn"> <!-- Save/Logout button -->
                 <button id="logout" class="btn btn-warning" type="button">

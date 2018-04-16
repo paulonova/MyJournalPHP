@@ -19,7 +19,7 @@
         <div class="signin_form">
             <h2 class="form-signin-heading">Please sign in</h2>
 
-            <label for="username" class="sr-only">Email address</label>
+            <label for="username" class="sr-only">Username</label>
             <input type="text" name ="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
             <label for="password" class="sr-only">Password</label>
             <input type="password" name="password" id="sign_password" class="form-control" placeholder="Password" required>
