@@ -20,10 +20,4 @@ $statement->execute([
 ]);
 
 
-
-
-
-
-
-
 ?>

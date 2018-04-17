@@ -1,10 +1,7 @@
-<?php   require_once "partials/journal_head.php";  
-        
-
-
-
-
-
+<?php   require_once "partials/journal_head.php"; 
+        // require_once 'session_start.php';
+        require_once "classes/entry.php";
+        require_once 'partials/database.php';
 
 ?>
 
@@ -12,6 +9,7 @@
     <h1>My Journal</h1>    
     <h3>UserID: <?php echo $_SESSION['user_id'];?></h3>    
 </div>
+
 
 <main class="container">
     
@@ -41,11 +39,34 @@
 
     </section><!-- Section Journal Entries -->
     <br/>
-    <hr>
     <section> <!-- Section Journals from database -->
         <article class="saved_journal" id="db_articles">
-            <h1>Saved Articles</h1>
-            <?php echo "Testando"?>
+            <h1 class="saved_articles">Saved Articles</h1>
+            <div class="journal_container">
+                <?php
+                require_once "classes/entry.php";
+                require_once 'partials/database.php'; 
+
+                $statement = $pdo->prepare("SELECT * FROM entries WHERE userID = :user_id 
+                                            ORDER BY createdAt");
+                $statement->execute([
+                    ":user_id" => $_SESSION['user_id']
+                ]);
+
+                $entries = $statement->fetchAll();
+                $journalsList = array();
+
+                foreach ($entries as $entry) {
+                    $journal = new Entries(
+                                        $entry["title"], $entry["content"], 
+                                        $entry["createdAt"], $entry["userID"]
+                                        );
+                        array_push($journalsList, $journal);
+                        echo $journal-> createCardElement();                    
+                }          
+                
+                ?>
+            </div>
         </article>
 
 

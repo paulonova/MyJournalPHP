@@ -17,10 +17,28 @@ class Entries{
     }
 
     public function printEntries(){
-        echo "Title: " . $this->title;
-        echo "Content: " . $this->content;
-        echo "CreatedAt: " . $this->createdAt;
-        echo "UserID: " . $this->userID;
+        echo "Title: " . $this->title . "<br/>";
+        echo "Content: " . $this->content . "<br/>";
+        echo "CreatedAt: " . $this->createdAt . "<br/>";
+        echo "UserID: " . $this->userID . "<br/><br/>";
+    }
+
+    function createCardElement(){
+        return "
+            <div class='card card-primary my_card'>
+                <div class='card-header'>
+                    <h3 class='card-title'>{$this->title}                    
+                    <a class='card_btn' href='../partials/del_entry.php'>Del</a>
+                    <a class='card_btn' href='../partials/del_entry.php'>Edit</a>
+                    </h3>
+                </div>
+                
+                <div class='card-block'>
+                    <p class='content'>{$this->content}</p>
+                    <p class='created_at'>{$this->createdAt}</p>
+                </div>                
+            </div>
+        ";
     }
 
     
