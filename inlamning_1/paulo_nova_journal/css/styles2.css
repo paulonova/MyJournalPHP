@@ -31,9 +31,10 @@ p.sub_title{
     background-image: url("../images/header.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    color: white;
 }
 
-.inlamning_title h1, h3{
+.inlamning_title{
 color: white;
 }
 
@@ -150,4 +151,11 @@ font-family: 'Dancing Script', cursive; */
       border: none;
   }
 
-  
+  @media screen and (min-width: 1000px){
+
+    .inlamning_title{
+        background-size: auto auto;
+        color: white;
+    }
+
+  }

@@ -57,9 +57,14 @@
                 $journalsList = array();
 
                 foreach ($entries as $entry) {
+                    
+                    
+
                     $journal = new Entries(
-                                        $entry["title"], $entry["content"], 
-                                        $entry["createdAt"], $entry["userID"]
+                                        $entry["title"], 
+                                        $entry["content"], 
+                                        $entry["createdAt"], 
+                                        $entry["userID"]
                                         );
                         array_push($journalsList, $journal);
                         echo $journal-> createCardElement();                    

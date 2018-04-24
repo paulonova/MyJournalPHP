@@ -29,7 +29,7 @@ class Entries{
                 <div class='card-header'>
                     <h3 class='card-title'>{$this->title}                    
                     <a class='card_btn' href='../partials/del_entry.php'>Del</a>
-                    <a class='card_btn' href='../partials/del_entry.php'>Edit</a>
+                    <a class='card_btn' href='../partials/edit_entry.php'>Edit</a>
                     </h3>
                 </div>
                 
@@ -39,6 +39,19 @@ class Entries{
                 </div>                
             </div>
         ";
+    }
+
+
+    function deleteJournalEntry($entryID, $userID){
+        $statement = $pdo->prepare("DELETE FROM entries WHERE entries.entryID = :entryID 
+                                    AND entries.userID = :userID");
+        $statement->execute([
+            "entryID" => $entryID,
+            "userID" => $userID
+        ]);
+
+        
+
     }
 
     
