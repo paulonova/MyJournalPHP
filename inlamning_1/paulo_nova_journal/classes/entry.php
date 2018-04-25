@@ -42,13 +42,18 @@ class Entries{
     }
 
 
-    function deleteJournalEntry($entryID, $userID){
-        $statement = $pdo->prepare("DELETE FROM entries WHERE entries.entryID = :entryID 
+    function deleteJournalEntryTitle($title, $userID){
+        $statement = $pdo->prepare("DELETE FROM entries WHERE entries.title = :title 
                                     AND entries.userID = :userID");
         $statement->execute([
-            "entryID" => $entryID,
+            "title" => $title,
             "userID" => $userID
         ]);
+
+    function editJournalEntry(){
+        $statement = $pdo->prepare("UPDATE entries WHERE entries.title = :title 
+                                    AND entries.userID = :userID");
+    }
 
         
 

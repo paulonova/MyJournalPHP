@@ -14,6 +14,7 @@
 <main class="container">
     
     <section class="jornal_form"> <!-- Section Journal Entries -->
+    <h1 class="saved_articles">Create Entry</h1>
         <form action='./partials/get_all_entries.php' method='POST'>
 
             <label for="journal_title" class="sr-only">Username</label> <!-- Title -->
@@ -36,8 +37,28 @@
             </div> <!-- Save/Logout button -->
 
         </form>
-
     </section><!-- Section Journal Entries -->
+    <hr>
+    <section class="jornal_form">
+        <h1 class="saved_articles">Delete Entry</h1>
+        <form action='./partials/get_all_entries.php' method='POST'>
+        <label for="user_id" class="sr-only">Username</label> <!-- User ID -->
+            <input type="text" name ="user_id" id="user_id" class="form-control" 
+                    placeholder="Set the user id.." required autofocus> <!-- User ID -->
+
+        <label for="entry_title" class="sr-only">Username</label> <!-- Title -->
+            <input type="text" name ="entry_title" id="entry_title" class="form-control" 
+                    placeholder="Set entry title.." required autofocus> <!-- Title -->
+        
+            <div class="signin_btn"> <!-- Delete button -->                 
+                <input class="btn btn-lg btn-primary" value="Delete" type="submit">
+            </div> <!-- Delete button -->
+
+        </form>
+    </section>
+
+
+
     <br/>
     <section> <!-- Section Journals from database -->
         <article class="saved_journal" id="db_articles">

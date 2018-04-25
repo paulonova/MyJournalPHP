@@ -2,6 +2,8 @@
 require_once 'database.php';
 require_once 'session_start.php';
 
+$_SESSION["journal_title"] = $_POST['journal_title'];
+
 header('Location: /journal.php');
 
 echo "Title: " . $_POST['journal_title'] . "<br/>";
