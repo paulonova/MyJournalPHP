@@ -40,8 +40,8 @@ class Entries{
                     <p class='created_at'><?php echo $this->createdAt ?></p>
                 </div>                
             </div> 
-            <?php;
-    }
+           
+            <?php }
 
 
     function deleteJournalEntryTitle($title, $userID){
