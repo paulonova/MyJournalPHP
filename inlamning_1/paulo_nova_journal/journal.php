@@ -14,6 +14,7 @@
 <main class="container">
     
     <section class="jornal_form"> <!-- Section Journal Entries -->
+    <h1 class="saved_articles">Create Entry</h1>
         <form action='./partials/get_all_entries.php' method='POST'>
 
             <label for="journal_title" class="sr-only">Username</label> <!-- Title -->
@@ -36,17 +37,17 @@
             </div> <!-- Save/Logout button -->
 
         </form>
-
     </section><!-- Section Journal Entries -->
+    <hr>
+    
+
+
     <br/>
     <section> <!-- Section Journals from database -->
         <article class="saved_journal" id="db_articles">
             <h1 class="saved_articles">Saved Articles</h1>
             <div class="journal_container">
                 <?php
-                require_once "classes/entry.php";
-                require_once 'partials/database.php'; 
-
                 $statement = $pdo->prepare("SELECT * FROM entries WHERE userID = :user_id 
                                             ORDER BY createdAt");
                 $statement->execute([
@@ -57,9 +58,13 @@
                 $journalsList = array();
 
                 foreach ($entries as $entry) {
+
                     $journal = new Entries(
-                                        $entry["title"], $entry["content"], 
-                                        $entry["createdAt"], $entry["userID"]
+                                        $entry["entryID"], 
+                                        $entry["title"], 
+                                        $entry["content"], 
+                                        $entry["createdAt"], 
+                                        $entry["userID"]
                                         );
                         array_push($journalsList, $journal);
                         echo $journal-> createCardElement();                    

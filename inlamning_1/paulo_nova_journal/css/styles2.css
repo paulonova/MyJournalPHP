@@ -25,18 +25,16 @@ p.sub_title{
 .inlamning_title, .saved_journal{
     text-align: center;
     font-size: 3rem;
-    
 }
 
 .inlamning_title{
     background-image: url("../images/header.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    color: whitesmoke;
-    text-shadow: 2px 2px 5px rgb(77, 75, 75);
+    color: white;
 }
 
-.inlamning_title h1, h3{
+.inlamning_title{
 color: white;
 }
 
@@ -153,4 +151,11 @@ font-family: 'Dancing Script', cursive; */
       border: none;
   }
 
-  
+  @media screen and (min-width: 1000px){
+
+    .inlamning_title{
+        background-size: auto auto;
+        color: white;
+    }
+
+  }

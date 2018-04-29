@@ -1,0 +1,222 @@
+/*
+ Theme Name:   Space theme
+ Description:  theme for ufos
+ Author:       Paulo Vila Nova
+ Template:     twentysixteen
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  twenty-sixteen-child
+*/
+
+@import "../twentysixteen/style.css";
+
+html{
+    min-width: 450px;
+}
+
+body, .widget {
+    background-color: #2a2c39;
+    color: #e9e9eb;
+}
+
+h1.entry-title{
+    color: #2a2c39;
+}
+
+/* a, a:visited, 
+a:hover, 
+a:focus {
+    color: none;
+} */
+
+.entry-meta,
+#secundary,
+.image-attachment a{
+    background-color: #333646;
+}
+
+a, a:visited, a:hover, a:focus {
+    color: white;
+}
+
+
+.entry-title a{
+    font-size: 2rem;
+}
+
+.site-title a {
+    font-size: 4vw;
+}
+.site-description{
+    font-size: 1.5vw;
+    display: block;
+}
+
+
+.site{
+    background-color: #2A2C39;
+}
+
+
+.menu-toggle{
+    color: whitesmoke;
+}
+
+continue-reading a:hover,
+.continue-reading a:focus,
+.entry-content .continue-reading a:hover,
+.entry-content .continue-reading a:focus{
+    border-color: #E9E9EB;    
+    background: hsla(0, 100%, 100%, .1);
+}
+
+
+.site-content{
+    padding: 30px;
+    background: #767da8;
+}
+
+.widget {
+    border-top: none;
+    padding: 18px;
+}
+
+p, figcaption,
+.entry-content h1 {
+    color: rgb(61, 61, 61);
+}
+
+.site-header{
+    background-image: url("../popper-child/images/universe.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.entry-header, 
+.post-thumbnail, 
+.entry-content, 
+.entry-summary, 
+.entry-footer, 
+.comments-area, 
+.image-navigation, 
+.post-navigation, 
+.pagination, 
+.page-header, 
+.page-content, 
+.content-bottom-widgets {
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 1rem;
+}
+
+.site-branding .site-title a {
+    font-size: 200%;    
+    color: white;
+}
+
+.site-branding .site-title a:hover {
+    color: rgb(134, 134, 134);
+}
+
+.post-navigation .meta-nav{
+    color: rgb(61, 241, 16);
+}
+
+
+.post-navigation {
+    background-color: #2A2C39;
+    margin-bottom: 4em;
+    border-radius: 20px;
+    padding: 22px;
+}
+
+.main-navigation{
+    position: relative;
+    bottom: 88px;
+    background-color: #2A2C39;
+}
+
+
+
+
+@media screen and (min-width: 61.5625em){
+    .site-header {
+        padding: 5.25em 4.5455%;
+    }
+
+    .site-branding .site-title a {
+        font-size: 200%;    
+        color: white;
+    }
+
+    .site-branding .site-title a:hover {
+        color: rgb(134, 134, 134);
+    }
+
+      
+    .post-navigation .meta-nav{
+        color: rgb(61, 241, 16);
+    }
+
+    .post-navigation {
+        background-color: #2A2C39;
+        margin-bottom: 4em;
+        border-radius: 20px;
+        padding: 22px;
+    }
+
+    .main-navigation{
+        position: relative;
+        bottom: 113px;
+        background-color: #2A2C39;
+    }
+
+
+}
+
+
+
+@media screen and (min-width: 65em){
+    .sidebar-righr #secundary, .sidebar-left #secundary{
+        background-color: #2A2C39;
+    }
+
+    .site-branding .site-title a {
+        font-size: 200%;    
+        color: white;
+    }
+
+    .site-branding .site-title a:hover {
+        color: rgb(134, 134, 134);
+    }
+
+    .post-navigation .meta-nav{
+        color: rgb(61, 241, 16);
+    }
+
+    .post-navigation {
+        background-color: #2A2C39;
+        margin-bottom: 4em;
+        border-radius: 20px;
+        padding: 22px;
+    }
+
+    .main-navigation{
+        position: relative;
+        bottom: 113px;
+        background-color: #2A2C39;
+    }
+
+}
+
+
+
+
+
+
+
+
+
