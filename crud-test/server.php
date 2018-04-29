@@ -10,7 +10,8 @@ $edit_state = false;
 /**CONNECTING TO DB *******************/
 $db = mysqli_connect('localhost', 'root', 'root', 'crud');
 
-//If save button is clicked
+
+/**INSERT RECORDS - SAVE */
 if(isset($_POST['save'])){
   $name = $_POST['name'];
   $address = $_POST['address'];

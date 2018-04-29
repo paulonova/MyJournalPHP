@@ -11,9 +11,7 @@ if(isset($_GET['edit'])){
     $address = $record['address'];
     $id = $record['id'];
 }
-// else{
-//     $edit_state = false;
-// }
+
     
 
 ?>

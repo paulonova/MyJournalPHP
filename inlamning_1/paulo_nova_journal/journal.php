@@ -3,7 +3,40 @@
         require_once "classes/entry.php";
         require_once 'partials/database.php';
 
+
+        if(isset($_GET['edit'])){
+            $id = $_GET['edit'];
+            $edit_state = true;
+            // $rec = mysqli_query($db, "SELECT * FROM entries WHERE entryID=$id");
+            // $record = mysqli_fetch_array($rec);
+            
+            $statement = $pdo->prepare("SELECT * FROM entries WHERE entryID= :entryID");
+            $statement->execute([
+                "entryID" => $_GET['edit']
+            ]);
+
+            $record = $statement->fetch();
+
+            echo  "EntryID: " . $record['entryID'];
+            echo  "<br/>";
+            echo  "Title: " . $record['title'];
+            echo  "<br/>";
+            echo  "Content: " . $record['content']; 
+            echo  "<br/>";
+            echo  "CreatedAt: " . $record['createdAt'];
+            echo  "<br/>";     
+            echo  "userID: " . $record['userID'];
+        }
+
 ?>
+<?php if(isset($_SESSION['msg'])):?>
+        <div class="msg">
+            <?php 
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            ?>
+        </div>
+    <?php endif ?>
 
 <div class="inlamning_title jumbotron">
     <h1>My Journal</h1>    
@@ -39,24 +72,7 @@
         </form>
     </section><!-- Section Journal Entries -->
     <hr>
-    <section class="jornal_form">
-        <h1 class="saved_articles">Delete Entry</h1>
-        <form action='./partials/get_all_entries.php' method='POST'>
-        <label for="user_id" class="sr-only">Username</label> <!-- User ID -->
-            <input type="text" name ="user_id" id="user_id" class="form-control" 
-                    placeholder="Set the user id.." required autofocus> <!-- User ID -->
-
-        <label for="entry_title" class="sr-only">Username</label> <!-- Title -->
-            <input type="text" name ="entry_title" id="entry_title" class="form-control" 
-                    placeholder="Set entry title.." required autofocus> <!-- Title -->
-        
-            <div class="signin_btn"> <!-- Delete button -->                 
-                <input class="btn btn-lg btn-primary" value="Delete" type="submit">
-            </div> <!-- Delete button -->
-
-        </form>
-    </section>
-
+    
 
 
     <br/>
@@ -65,9 +81,6 @@
             <h1 class="saved_articles">Saved Articles</h1>
             <div class="journal_container">
                 <?php
-                require_once "classes/entry.php";
-                require_once 'partials/database.php'; 
-
                 $statement = $pdo->prepare("SELECT * FROM entries WHERE userID = :user_id 
                                             ORDER BY createdAt");
                 $statement->execute([
@@ -78,10 +91,9 @@
                 $journalsList = array();
 
                 foreach ($entries as $entry) {
-                    
-                    
 
                     $journal = new Entries(
+                                        $entry["entryID"], 
                                         $entry["title"], 
                                         $entry["content"], 
                                         $entry["createdAt"], 

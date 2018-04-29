@@ -8,7 +8,8 @@ class Entries{
     public $createdAt;
     public $userID;
 
-    function __construct($title, $content, $createdAt, $userID){
+    function __construct($entryID, $title, $content, $createdAt, $userID){
+        $this->entryID = $entryID;
         $this->title = $title;
         $this->content = $content;
         $this->createdAt = $createdAt;
@@ -17,52 +18,29 @@ class Entries{
     }
 
     public function printEntries(){
+        echo "Entry ID: " . $this->entryID . "<br/>";
         echo "Title: " . $this->title . "<br/>";
         echo "Content: " . $this->content . "<br/>";
         echo "CreatedAt: " . $this->createdAt . "<br/>";
         echo "UserID: " . $this->userID . "<br/><br/>";
     }
 
-    function createCardElement(){
-        return "
+    function createCardElement(){ ?>
+
             <div class='card card-primary my_card'>
                 <div class='card-header'>
-                    <h3 class='card-title'>{$this->title}                    
-                    <a class='card_btn' href='../partials/del_entry.php'>Del</a>
-                    <a class='card_btn' href='../partials/edit_entry.php'>Edit</a>
+                    <h3 class='card-title'><?php echo $this->title ?>                    
+                    <a class='card_btn' href='../journal.php?edit=<?php echo $this->entryID?>'>Edit</a>
+                    <a class='card_btn' href='../partials/del_entry.php?del=<?php echo $this->entryID?>'>Del</a>
                     </h3>
                 </div>
                 
                 <div class='card-block'>
-                    <p class='content'>{$this->content}</p>
-                    <p class='created_at'>{$this->createdAt}</p>
+                    <p class='content'><?php echo $this->content ?></p>
+                    <p class='created_at'><?php echo $this->createdAt ?></p>
                 </div>                
-            </div>
-        ";
-    }
+            </div> 
 
+    <?php }
 
-    function deleteJournalEntryTitle($title, $userID){
-        $statement = $pdo->prepare("DELETE FROM entries WHERE entries.title = :title 
-                                    AND entries.userID = :userID");
-        $statement->execute([
-            "title" => $title,
-            "userID" => $userID
-        ]);
-
-    function editJournalEntry(){
-        $statement = $pdo->prepare("UPDATE entries WHERE entries.title = :title 
-                                    AND entries.userID = :userID");
-    }
-
-        
-
-    }
-
-    
-
-}
-
-
-
-?>
+} ?>
