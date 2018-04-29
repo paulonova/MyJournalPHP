@@ -23,28 +23,22 @@ class Entries{
         echo "UserID: " . $this->userID . "<br/><br/>";
     }
 
-    function createCardElement(){
-        return "
+    function createCardElement(){ ?>
+
             <div class='card card-primary my_card'>
                 <div class='card-header'>
-                    <h3 class='card-title'>{$this->title}                    
+                    <h3 class='card-title'><?php echo $this->title; ?>           
                     <a class='card_btn' href='../partials/del_entry.php'>Del</a>
-                    <a class='card_btn' href='../partials/del_entry.php'>Edit</a>
+                    <a class='card_btn' href='../partials/edit_entry.php'>Edit</a>
                     </h3>
                 </div>
                 
                 <div class='card-block'>
-                    <p class='content'>{$this->content}</p>
-                    <p class='created_at'>{$this->createdAt}</p>
+                    <p class='content'><?php echo $this->content; ?></p>
+                    <p class='created_at'><?php echo $this->createdAt; ?></p>
                 </div>                
             </div>
-        ";
-    }
 
-    
+    <?php }    
 
-}
-
-
-
-?>
+ } ?>
