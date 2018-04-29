@@ -3,7 +3,40 @@
         require_once "classes/entry.php";
         require_once 'partials/database.php';
 
+
+        if(isset($_GET['edit'])){
+            $id = $_GET['edit'];
+            $edit_state = true;
+            // $rec = mysqli_query($db, "SELECT * FROM entries WHERE entryID=$id");
+            // $record = mysqli_fetch_array($rec);
+            
+            $statement = $pdo->prepare("SELECT * FROM entries WHERE entryID= :entryID");
+            $statement->execute([
+                "entryID" => $_GET['edit']
+            ]);
+
+            $record = $statement->fetch();
+
+            echo  "EntryID: " . $record['entryID'];
+            echo  "<br/>";
+            echo  "Title: " . $record['title'];
+            echo  "<br/>";
+            echo  "Content: " . $record['content']; 
+            echo  "<br/>";
+            echo  "CreatedAt: " . $record['createdAt'];
+            echo  "<br/>";     
+            echo  "userID: " . $record['userID'];
+        }
+
 ?>
+<?php if(isset($_SESSION['msg'])):?>
+        <div class="msg">
+            <?php 
+                echo $_SESSION['msg'];
+                unset($_SESSION['msg']);
+            ?>
+        </div>
+    <?php endif ?>
 
 <div class="inlamning_title jumbotron">
     <h1>My Journal</h1>    
