@@ -29,7 +29,7 @@ class Entries{
 
             <div class='card card-primary my_card'>
                 <div class='card-header'>
-                    <h3 class='card-title'><?php echo $this->title ?>                    
+                    <h3 class='card-title'><?php echo $this->title ?><br>                    
                     <a class='card_btn' href='../journal.php?edit=<?php echo $this->entryID?>'>Edit</a>
                     <a class='card_btn' href='../partials/del_entry.php?del=<?php echo $this->entryID?>'>Del</a>
                     </h3>

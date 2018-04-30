@@ -133,7 +133,16 @@ button a{
     overflow: hidden;
     text-shadow: 2px 2px 5px rgb(77, 75, 75);
     color: whitesmoke;
-    font-size: 100%;
+    font-size: 5vh;
+  }
+
+  a.card_btn{
+    display: inline-block;
+    font-size: .7em;
+  }
+
+  a.card_btn:hover{      
+     color: rgb(28, 107, 28);      
   }
 
   
@@ -164,9 +173,15 @@ button a{
 
   @media (min-width: 768px) and (max-width: 1450px){
 
-    body{
-        background-color: orange;
-    }
+    
+    .card-title{
+        font-size: 4vh;
+      }
+    
+      a.card_btn{
+        font-size: .7em;
+      }
+
 
     .inlamning_title{
         background-size: contain auto;
@@ -186,11 +201,17 @@ button a{
 
 
   @media (min-width: 360px) and (max-width: 768px){
-  
-    body{
-        background-color: pink;
-    }
 
+    
+  
+    .card-title{
+        font-size: 3vh;
+      }
+    
+      a.card_btn{
+        font-size: .7em;
+      }
+    
     .inlamning_title{
         background-size: contain auto;
         color: white;
