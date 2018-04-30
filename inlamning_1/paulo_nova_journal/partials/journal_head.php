@@ -11,7 +11,7 @@
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
     crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles2.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Gaegu|Pacifico" rel="stylesheet">
     <!-- <script src="js/script2.js" defer></script> -->
   <title>Journal</title>

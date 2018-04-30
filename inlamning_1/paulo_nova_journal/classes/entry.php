@@ -25,13 +25,13 @@ class Entries{
         echo "UserID: " . $this->userID . "<br/><br/>";
     }
 
-    function createCardElement(){
-         ?>
+    function createCardElement(){ ?>
+
             <div class='card card-primary my_card'>
                 <div class='card-header'>
                     <h3 class='card-title'><?php echo $this->title ?>                    
-                    <a class='card_btn' href='../partials/edit_entry.php?edit=<?php echo $this->entryID?>'>Edit</a>
-                    <a class='card_btn' href='../partials/del_entry.php'>Del</a>
+                    <a class='card_btn' href='../journal.php?edit=<?php echo $this->entryID?>'>Edit</a>
+                    <a class='card_btn' href='../partials/del_entry.php?del=<?php echo $this->entryID?>'>Del</a>
                     </h3>
                 </div>
                 
@@ -40,25 +40,7 @@ class Entries{
                     <p class='created_at'><?php echo $this->createdAt ?></p>
                 </div>                
             </div> 
-           
-            <?php }
 
-
-    function deleteJournalEntryTitle($title, $userID){
-        $statement = $pdo->prepare("DELETE FROM entries WHERE entries.title = :title 
-                                    AND entries.userID = :userID");
-        $statement->execute([
-            "title" => $title,
-            "userID" => $userID
-        ]);
-
-    function editJournalEntry(){
-        $statement = $pdo->prepare("UPDATE entries WHERE entries.title = :title 
-                                    AND entries.userID = :userID");
-    }        
-  
-  }   
-
-}
-
-?>
+    <?php }  
+    
+    }?>

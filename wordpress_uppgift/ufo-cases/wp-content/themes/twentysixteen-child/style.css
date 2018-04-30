@@ -16,9 +16,22 @@ html{
     min-width: 450px;
 }
 
-body, .widget {
+.widget {
     background-color: #2a2c39;
     color: #e9e9eb;
+}
+
+body{
+    background-color: #949496;
+}
+
+.entry-footer a {
+    color: white;
+}
+
+.comment-form label {
+    color: whitesmoke;
+    font-weight: bold;
 }
 
 h1.entry-title{
@@ -46,9 +59,8 @@ a, a:visited, a:hover, a:focus {
     font-size: 2rem;
 }
 
-.site-title a {
-    font-size: 4vw;
-}
+
+
 .site-description{
     font-size: 1.5vw;
     display: block;
@@ -107,6 +119,7 @@ p, figcaption,
 .page-header, 
 .page-content, 
 .content-bottom-widgets {
+    color: white;
     margin-right: 0;
     margin-left: 0;
     font-size: 1rem;
@@ -144,8 +157,10 @@ p, figcaption,
 
 @media screen and (min-width: 61.5625em){
     .site-header {
+        background-image: url("./images/universe.jpg");
         padding: 5.25em 4.5455%;
     }
+    
 
     .site-branding .site-title a {
         font-size: 200%;    
