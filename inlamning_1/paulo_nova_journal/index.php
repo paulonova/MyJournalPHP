@@ -8,7 +8,7 @@
     <?php } ?>
 
 <div class="inlamning_title jumbotron">
-    <h1>Inlämningsuppgift n.1</h1>    
+    <h1>Inlämningsuppgift CRUD/PHP</h1>    
     <h3>PHP / MySql - Paulo Vila Nova</h3>    
 </div>
 

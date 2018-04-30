@@ -1,5 +1,4 @@
 <?php   require_once "partials/journal_head.php"; 
-        // require_once 'session_start.php';
         require_once "classes/entry.php";
         require_once 'partials/database.php';
 
@@ -7,25 +6,15 @@
         if(isset($_GET['edit'])){
             $id = $_GET['edit'];
             $edit_state = true;
-            // $rec = mysqli_query($db, "SELECT * FROM entries WHERE entryID=$id");
-            // $record = mysqli_fetch_array($rec);
+            $_SESSION['entryID'] = $_GET['edit'];
             
-            $statement = $pdo->prepare("SELECT * FROM entries WHERE entryID= :entryID");
+            $statement = $pdo->prepare("SELECT * FROM entries WHERE entryID= :entryID ORDER BY createdAt ASC");
             $statement->execute([
                 "entryID" => $_GET['edit']
             ]);
 
             $record = $statement->fetch();
-
-            echo  "EntryID: " . $record['entryID'];
-            echo  "<br/>";
-            echo  "Title: " . $record['title'];
-            echo  "<br/>";
-            echo  "Content: " . $record['content']; 
-            echo  "<br/>";
-            echo  "CreatedAt: " . $record['createdAt'];
-            echo  "<br/>";     
-            echo  "userID: " . $record['userID'];
+            $date = explode(" ",$record["createdAt"]);
         }
 
 ?>
@@ -39,8 +28,7 @@
     <?php endif ?>
 
 <div class="inlamning_title jumbotron">
-    <h1>My Journal</h1>    
-    <h3>UserID: <?php echo $_SESSION['user_id'];?></h3>    
+    <h1 class="journal_title">My Journal</h1>    
 </div>
 
 
@@ -51,22 +39,31 @@
         <form action='./partials/get_all_entries.php' method='POST'>
 
             <label for="journal_title" class="sr-only">Username</label> <!-- Title -->
-            <input type="text" name ="journal_title" id="journal_title" class="form-control" 
+            <input type="text" name ="journal_title" value= "<?php echo $record['title'] ?>" 
+                    id="journal_title" class="form-control" 
                     placeholder="Journal Title.." required autofocus> <!-- Title -->
             
             <label for="journal_area" class="sr-only">Journal:</label>  <!-- Journal annotation -->
             <textarea class="form-control" name="journal_area" id="journal_area" 
-                    placeholder="Write you journal here.." rows="4" required autofocus></textarea>  <!-- Journal annotation -->
+                    placeholder="Write you journal here.." rows="4" required autofocus><?php echo $record['content'] ?></textarea>  <!-- Journal annotation -->
 
             <label for="journal_date" class="sr-only">Date:</label>  <!-- Date -->
-            <input type="date" class="form-control" name="journal_date" 
+            <input type="date" class="form-control" name="journal_date" value="<?php echo $date[0]?>" 
                     placeholder="yyyy/mm/dd" required autofocus/>  <!-- Date -->
 
             <div class="signin_btn"> <!-- Save/Logout button -->
                 <button id="logout" class="btn btn-warning" type="button">
                     <a href='logout.php'>Logout here</a>
-                </button>                 
-                <input class="btn btn-lg btn-primary" value="Save" type="submit">
+                </button>    
+
+                <?php if($edit_state == false): ?>
+                    <input class="btn btn-lg btn-primary" name="save" value="Save" type="submit">
+                <?php else: ?>
+                    <input class="btn btn-lg btn-primary" name="update" value="Update" type="submit">
+                <?php endif ?>
+
+                             
+                
             </div> <!-- Save/Logout button -->
 
         </form>
@@ -91,12 +88,12 @@
                 $journalsList = array();
 
                 foreach ($entries as $entry) {
-
+                    $date = explode(" ",$entry["createdAt"]);
                     $journal = new Entries(
                                         $entry["entryID"], 
                                         $entry["title"], 
                                         $entry["content"], 
-                                        $entry["createdAt"], 
+                                        $date[0],
                                         $entry["userID"]
                                         );
                         array_push($journalsList, $journal);
