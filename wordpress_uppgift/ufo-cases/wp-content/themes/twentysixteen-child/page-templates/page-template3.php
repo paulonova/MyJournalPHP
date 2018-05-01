@@ -26,4 +26,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
+<!--without sidebar ==> !Paulo -->
 <?php get_footer(); ?>
