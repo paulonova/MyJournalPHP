@@ -3,9 +3,16 @@
 Template Name: My Template 1
 */
 
+//WITHOUT SIDEBAR AND DIFERENT LAYOUT
+
 
 get_header(); ?>
 
+<main class="temp1_container"><!-- container -->
+
+<section class="temp1_prev_nav">
+
+	<h1>Navigation</h1>
 	<?php the_post_navigation( array(
 				'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'popper' ) . '</span> ' .
 					'<span class="screen-reader-text">' . __( 'Next post:', 'popper' ) . '</span> ' .
@@ -15,10 +22,10 @@ get_header(); ?>
 					'<span class="post-title">%title</span>',
 			) );?>
 
-		
+</section>
 
-<div id="primary" class="content-area">
-	<main id="main" class="site-main" role="main">
+<section class="temp1_content">
+
 		<?php
 		// Start the loop.
 		while ( have_posts() ) : the_post();
@@ -34,12 +41,7 @@ get_header(); ?>
 			// End of the loop.
 		endwhile;
 		?>
+</section>
 
-	</main><!-- .site-main -->
-
-	<?php //get_sidebar( 'content-bottom' ); ?>
-
-</div><!-- .content-area -->
-
-<?php get_sidebar(); ?>
+</main>
 <?php get_footer(); ?>
