@@ -1,11 +1,22 @@
 <?php require_once "partials/head.php";  ?>
 
-<?php if (isset($_GET["message"])) {?>
-    <div id="login_failed" class="alert alert-danger" role="alert">
-        <?php echo $_GET["message"]; ?>
-    </div>
 
-    <?php } ?>
+
+<!-- Alert login error Dialog -->
+<?php if(isset($_GET["message"])):?>
+        
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <?php 
+                echo $_GET["message"];
+                unset($_GET["message"]);
+            ?>
+        </div> 
+
+<?php endif ?>
+
 
 <div class="inlamning_title jumbotron">
     <h1>Inlämningsuppgift CRUD/PHP</h1>    
