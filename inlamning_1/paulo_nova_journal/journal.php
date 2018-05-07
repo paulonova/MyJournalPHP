@@ -2,7 +2,6 @@
         require_once "classes/entry.php";
         require_once 'partials/database.php';
 
-
         if(isset($_GET['edit'])){
             $id = $_GET['edit'];
             $edit_state = true;
@@ -14,18 +13,30 @@
             ]);
 
             $record = $statement->fetch();
-            $date = explode(" ",$record["createdAt"]);
+            $date = explode(" ", $record["createdAt"]);
+
+        }else{
+            $edit_state = false;
+            $record['title'] = "";
+            $record['content'] = "";    
         }
 
 ?>
+
+<!-- Alert Dialog -->
 <?php if(isset($_SESSION['msg'])):?>
-        <div class="msg">
+        
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             <?php 
                 echo $_SESSION['msg'];
                 unset($_SESSION['msg']);
             ?>
-        </div>
-    <?php endif ?>
+        </div> 
+
+<?php endif ?>
 
 <div class="inlamning_title jumbotron">
     <h1 class="journal_title">My Journal</h1>    
@@ -64,7 +75,7 @@
 
                              
                 
-            </div> <!-- Save/Logout button -->
+            <!-- </div> Save/Logout button -->
 
         </form>
     </section><!-- Section Journal Entries -->

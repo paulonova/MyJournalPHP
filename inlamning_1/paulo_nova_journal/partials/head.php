@@ -11,7 +11,7 @@
     integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" 
     crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles2.css">
-    <script src="js/script2.js" defer></script>
+    <script src="js/script.js" defer></script>
   <title>Journal</title>
 </head>
 

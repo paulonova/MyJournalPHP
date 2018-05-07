@@ -22,6 +22,16 @@ p.sub_title{
     border-radius: 0;
 }
 
+.alert{
+    margin: 0;
+}
+
+
+/* X from the Alerts.. */
+.alert-dismissible .close{
+    background-color: tomato;
+}
+
 .inlamning_title, .saved_journal{
     text-align: center;
     font-size: 3vw;
@@ -189,7 +199,7 @@ button a{
     }
 
     .inlamning_title h1, h3{
-        font-size: 6vw;
+        font-size: 2vw;
     }
 
     .saved_articles{
