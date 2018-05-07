@@ -45,7 +45,7 @@
 
     <hr>
 
-      <form id="register_form" class="form_register hidden" action='partials/register.php' method='POST'>
+      <form id="register_form" class="form_register hidden" action='partials/post_entry.php' method='POST'>
         <div class="register_form">
             <h2 class="form-signin-heading">Register</h2>
 

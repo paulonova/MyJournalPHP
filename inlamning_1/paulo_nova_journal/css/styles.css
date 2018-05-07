@@ -29,7 +29,8 @@ p.sub_title{
 
 /* X from the Alerts.. */
 .alert-dismissible .close{
-    background-color: tomato;
+    text-align: center;
+    margin: auto;
 }
 
 .inlamning_title, .saved_journal{
@@ -47,9 +48,12 @@ p.sub_title{
 
 .inlamning_title h1, h3{
     color: white;
-    font-size: 4vw;
     font-family: 'Gaegu', cursive;
     text-shadow: 2px 2px 5px rgb(77, 75, 75);
+}
+
+.inlamning_title h1.journal_title{
+    font-size: 2em;
 }
 
 
@@ -199,7 +203,11 @@ button a{
     }
 
     .inlamning_title h1, h3{
-        font-size: 2vw;
+        font-size: 1em;
+    }
+
+    .inlamning_title h1.journal_title{
+        font-size: 2em;
     }
 
     .saved_articles{
@@ -228,7 +236,11 @@ button a{
     }
 
     .inlamning_title h1, h3{
-        font-size: 7vw;
+        font-size: 1em;
+    }
+
+    .inlamning_title h1.journal_title{
+        font-size: 2em;
     }
 
     .saved_articles{
