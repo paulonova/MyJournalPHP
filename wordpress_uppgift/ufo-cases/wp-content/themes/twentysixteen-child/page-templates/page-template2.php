@@ -6,7 +6,6 @@ Template Name: My Template 2
 
 get_header(); ?>
 
-	<h1>The Final Frontier</h1>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
@@ -27,8 +26,8 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-/**DIFERENT SIDEBAR !Paulo*/
 
+/**DIFERENT SIDEBAR !Paulo*/
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 	return;
 }
